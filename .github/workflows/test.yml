@@ -3,10 +3,12 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
 jobs:
   tests: 
     runs-on: ubuntu-22..04
+    strategy:
+      matrix:
+        node-version: [24.x,19.x,18.x]
     defaults:
       run:
         working-directory: backend
